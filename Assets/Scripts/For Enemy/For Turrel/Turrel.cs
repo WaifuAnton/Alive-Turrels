@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Turrel : Enemy {
     public float angle = 90;
-    [SerializeField] Transform rayCaster;
+    [SerializeField] Transform shootingPoint;
     RaycastHit hit;
     NavMeshAgent agent;
 	// Use this for initialization
@@ -22,10 +22,18 @@ public class Turrel : Enemy {
     {
         CharacterController character = other.gameObject.GetComponent<CharacterController>();
         if (character != null)
-            if (Physics.Raycast(rayCaster.position, transform.forward, out hit))
+        {
+            Vector3 characterPosition = character.transform.position - transform.position;
+            float curAngle = Vector3.Angle(transform.forward, characterPosition);
+            if (curAngle <= angle)
             {
-
+                agent.isStopped = true;
+                if (Physics.Raycast(transform.position, transform.forward, out hit))
+                {
+                    //shooting script
+                }
             }
+        }
     }
 
     private void OnTriggerExit(Collider other)

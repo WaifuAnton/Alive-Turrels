@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 90
-  rayCaster: {fileID: 1513389749}
+  shootingPoint: {fileID: 1513389749}
 --- !u!1 &473956468
 GameObject:
   m_ObjectHideFlags: 0
