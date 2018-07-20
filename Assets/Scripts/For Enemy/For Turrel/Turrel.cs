@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Turrel : Enemy {
     public float angle = 90;
+    public float rotationSpeed = 1;
     [SerializeField] Transform shootingPoint;
     RaycastHit hit;
     NavMeshAgent agent;
@@ -14,13 +15,13 @@ public class Turrel : Enemy {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         agent.SetDestination(new Vector3(1, 1, 1));
 	}
 
     private void OnTriggerStay(Collider other)
     {
-        CharacterController character = other.gameObject.GetComponent<CharacterController>();
+        CharacterController character = other.GetComponent<CharacterController>();
         if (character != null)
         {
             Vector3 characterPosition = character.transform.position - transform.position;
@@ -30,7 +31,13 @@ public class Turrel : Enemy {
                 agent.isStopped = true;
                 if (Physics.Raycast(transform.position, transform.forward, out hit))
                 {
-                    //shooting script
+                    character = hit.transform.GetComponent<CharacterController>();
+                    if (character != null)
+                    {
+
+                    }
+                    Quaternion rotationWay = Quaternion.LookRotation(characterPosition);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, rotationWay, rotationSpeed * Time.deltaTime);
                 }
             }
         }
@@ -38,7 +45,7 @@ public class Turrel : Enemy {
 
     private void OnTriggerExit(Collider other)
     {
-        CharacterController character = other.gameObject.GetComponent<CharacterController>();
+        CharacterController character = other.GetComponent<CharacterController>();
         if (character != null)
         {
             agent.isStopped = false;
