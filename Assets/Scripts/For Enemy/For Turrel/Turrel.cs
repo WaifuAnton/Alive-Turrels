@@ -7,6 +7,8 @@ public class Turrel : Enemy {
     public float angle = 90;
     public float rotationSpeed = 1;
     [SerializeField] Transform shootingPoint;
+    [SerializeField] Missile missilePrefab;
+    Missile missile;
     RaycastHit hit;
     NavMeshAgent agent;
 	// Use this for initialization
@@ -33,13 +35,14 @@ public class Turrel : Enemy {
                 {
                     character = hit.transform.GetComponent<CharacterController>();
                     if (character != null)
-                    {
-
-                    }
+                        if (missile == null)
+                            missile = Instantiate(missilePrefab, shootingPoint.position, transform.rotation);
                     Quaternion rotationWay = Quaternion.LookRotation(characterPosition);
                     transform.rotation = Quaternion.Lerp(transform.rotation, rotationWay, rotationSpeed * Time.deltaTime);
                 }
             }
+            else
+                agent.isStopped = false;
         }
     }
 

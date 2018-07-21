@@ -12,7 +12,7 @@ public class Missile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        transform.Translate(transform.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
 
     private void OnTriggerEnter(Collider other)
