@@ -746,6 +746,7 @@ GameObject:
   - component: {fileID: 1035859261}
   - component: {fileID: 1035859260}
   - component: {fileID: 1035859259}
+  - component: {fileID: 1035859262}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -776,8 +777,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.5
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1035859260
@@ -822,6 +823,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1035859257}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1035859262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1035859257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382ddd8a8973edb46acc4f37ded4b130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
 --- !u!1 &1063216507
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,6 +849,7 @@ GameObject:
   - component: {fileID: 1063216508}
   - component: {fileID: 1063216513}
   - component: {fileID: 1063216514}
+  - component: {fileID: 1063216515}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -958,6 +972,18 @@ MonoBehaviour:
   minAngle: -45
   maxAngle: 45
   axis: 1
+--- !u!114 &1063216515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1063216507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aecaae44c7216d4aa0ea05481da0af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &1422487383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1109,7 @@ SphereCollider:
   m_GameObject: {fileID: 1440769530}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
