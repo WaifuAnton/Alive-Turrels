@@ -476,7 +476,7 @@ MonoBehaviour:
   angle: 90
   rotationSpeed: 1
   shootingPoint: {fileID: 1513389749}
-  missilePrefab: {fileID: 114976796421237348, guid: 059cb9dd9b4938544b3dcc397103eb5d,
+  missilePrefab: {fileID: 114651129870099992, guid: 8c6c43cec80123145bf888af51dc026f,
     type: 2}
 --- !u!1 &473956468
 GameObject:
@@ -688,7 +688,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 927503868}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -1151,7 +1151,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513389748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.02, z: -0}
+  m_LocalPosition: {x: 0, y: 1, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 927503869}

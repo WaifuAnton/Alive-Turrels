@@ -17,9 +17,12 @@ public class Missile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerMovement player = other.GetComponent<PlayerMovement>();
-        if (player != null)
-            player.ChangeHealth(-damage);
-        Destroy(gameObject);
+        if (!other.isTrigger)
+        {
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
+            if (player != null)
+                player.ChangeHealth(-damage);
+            Destroy(gameObject);
+        }
     }
 }
