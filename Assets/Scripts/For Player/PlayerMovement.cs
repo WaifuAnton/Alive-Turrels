@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             curHealth = 0;
             transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 90);
+            enabled = false;
         }
     }
 }
